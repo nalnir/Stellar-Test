@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import 'dotenv/config'
 
 //Stellar
 import { generateRandomKeypair } from '../../../providers/stellar_service';
@@ -13,20 +12,20 @@ import ErrorSuccessSnackbar from '../../../components/error_success_snackbar';
 
 const AccountCreate = () => {
     const navigate = useNavigate();
-    const [loading, setLoading] = useState(false)
-    const [openSuccessOrError, setOpenSuccessOrError] = useState(false)
-    const [successOrError, setSuccessOrError] = useState('')
+    const [loading, setLoading] = useState(false);
+    const [openSuccessOrError, setOpenSuccessOrError] = useState(false);
+    const [successOrError, setSuccessOrError] = useState('');
 
     const generate = () => {
         setLoading(true);
         generateRandomKeypair((result) => {
             if(result === 'success') {
                 setLoading(false);
-                return navigate('/landing', { replace: true })
+                return navigate('/landing', { replace: true });
             } else {
                 setLoading(false);
-                setSuccessOrError(result)
-                setOpenSuccessOrError(true)
+                setSuccessOrError(result);
+                setOpenSuccessOrError(true);
             }
         })
     }

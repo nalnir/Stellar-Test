@@ -16,26 +16,27 @@ const Sender = () => {
     const [lumenAmount, setLumenAmount] = useState('');
     const [destinationId, setDestinationId] = useState('GBE5WUWR6DRFIZVEBD52PRV4EX2HTJ4SJQMCFBJV22G7LCVK5LPWQYFP');
     const [loading, setLoading] = useState(false);
-    const [openSuccessOrError, setOpenSuccessOrError] = useState(false)
-    const [successOrError, setSuccessOrError] = useState('')
+    const [openSuccessOrError, setOpenSuccessOrError] = useState(false);
+    const [successOrError, setSuccessOrError] = useState('');
 
     const send = () => {
         var sourceKeys = JSON.parse(localStorage.getItem('stellar_test_account_encrypted'));
-        setSuccessOrError({ severity: 'error', message: 'Lumen Amount must be more than 0!' });
-        setOpenSuccessOrError(true)
-        if(lumenAmount.length > 0) {
+        if(lumenAmount.length > 0 && parseInt(lumenAmount) > 0) {
             setLoading(true);
             sendLumens(sourceKeys, lumenAmount, destinationId, (res) => {
                 if(res.severity === 'success') {
                     setLoading(false);
                     setSuccessOrError(res);
-                    setOpenSuccessOrError(true)
+                    setOpenSuccessOrError(true);
                 } else {
                     setLoading(false);
                     setSuccessOrError(res);
-                    setOpenSuccessOrError(true)
+                    setOpenSuccessOrError(true);
                 }
             });
+        } else {
+            setSuccessOrError({ severity: 'error', message: 'Lumen Amount must be more than 0!' });
+            setOpenSuccessOrError(true);
         }
     }
 

@@ -6,7 +6,7 @@ var transaction;
 export const generateRandomKeypair = (callback) => {
     const pair = StellarSdk.Keypair.random();
     fundTestAccount(pair).then((value)=>{
-        callback(value)
+        callback(value);
     })
 };
 

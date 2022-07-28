@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box, AppBar, Toolbar, Typography, Button } from '@mui/material'
+import { Box, AppBar, Toolbar, Typography, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 const TopNavbar = () => {
@@ -7,11 +7,11 @@ const TopNavbar = () => {
     const [loggedIn, setLoggedIn] = useState(false);
 
     useEffect(() => {
-        const pair = localStorage.getItem('stellar_test_account_encrypted')
+        const pair = localStorage.getItem('stellar_test_account_encrypted');
         if(pair) {
-            setLoggedIn(true)
+            setLoggedIn(true);
         } else {
-            setLoggedIn(false)
+            setLoggedIn(false);
         }
     },[])
 

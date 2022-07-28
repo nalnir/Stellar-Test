@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Snackbar, Alert } from '@mui/material'
+import { Snackbar, Alert } from '@mui/material';
 
 const ErrorSuccessSnackbar = (props) => {
     return (

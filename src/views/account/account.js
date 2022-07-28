@@ -2,12 +2,12 @@ import React from 'react';
 import goodvibes from '../../assets/images/goodvibes.svg';
 
 //MUI
-import { Grid } from '@mui/material'
+import { Grid } from '@mui/material';
 
 //Components
 import TopNavbar from '../../components/top_navbar';
 import AccountCreate from './create/account_create';
-import ImageCard from '../../components/image_card'
+import ImageCard from '../../components/image_card';
 
 const Account = () => {
     return (
